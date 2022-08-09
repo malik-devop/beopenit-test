@@ -33,6 +33,8 @@ function MyForm() {
          .then((response) => response.json())
          .then((data) => {
            console.log("Success:", data);
+           setFormValues(defaultValues);
+           alert("Product created successfully!");
          })
          .catch((error) => {
            console.error("Error:", error);
