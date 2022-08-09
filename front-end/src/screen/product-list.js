@@ -20,6 +20,24 @@ React.useEffect(() => {
       });
 }, [])
     
+    const handleDelete = (id) => { 
+      
+        fetch(`/delete/${id}`, {
+         method: "DELETE",
+         headers: {
+           "Accept": "application/json",
+           "Content-Type": "application/json",
+         },
+       })
+         .then((response) => response.json())
+         .then((data) => {
+           console.log("Success:", data);
+         })
+         .catch((error) => {
+           console.error("Error:", error);
+         });
+
+    }
  
 
   const handleNavigate = () => navigate("/", { replace: true });
@@ -41,6 +59,7 @@ React.useEffect(() => {
               <th scope="col">Name</th>
               <th scope="col">Description</th>
               <th scope="col">Quantity</th>
+              <th scope="col">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -50,6 +69,22 @@ React.useEffect(() => {
                 <td>{item.name}</td>
                 <td>{item.description}</td>
                 <td>{item.quantity}</td>
+                <td>
+                  <button
+                    type="submit"
+                    onClick={() => {}}
+                            className="btn btn-info m-2"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="btn btn-danger"
+                    type="submit"
+                    onClick={() => handleDelete(item.id)}
+                  >
+                    Delete
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
