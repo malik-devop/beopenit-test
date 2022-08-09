@@ -1,14 +1,18 @@
-import './App.css';
-import MyList from "./screen/product-table"
+import MyForm from "./screen/product-table";
+import MyList from "./screen/product-list";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
 function App() {
   return (
-    <div className="App">
-      <div className="App-header">
-        <MyList />
-      </div>
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<MyForm />} />
+          <Route path="/list" element={<MyList />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 

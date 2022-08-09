@@ -21,3 +21,16 @@
 .span {
     margin-bottom: 3rem;
 }
+.App-header {
+  background-color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: rgb(81, 81, 81);
+}
+.App {
+  text-align: center;
+}
