@@ -8,16 +8,19 @@ function MyList() {
 const [state, setState] = React.useState()
 let navigate = useNavigate();
 
+    const fetchdata = () => {
+         fetch("/get")
+           .then((response) => response.json())
+           .then((data) => {
+             setState(data);
+             console.log("Success:", data);
+           })
+           .catch((error) => {
+             console.error("Error:", error);
+           });
+    }
 React.useEffect(() => {
- fetch("/get")
-      .then((response) => response.json())
-     .then((data) => {
-         setState(data);
-        console.log("Success:", data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+fetchdata()
 }, [])
     
     const handleDelete = (id) => { 
@@ -31,7 +34,8 @@ React.useEffect(() => {
        })
          .then((response) => response.json())
          .then((data) => {
-           console.log("Success:", data);
+             console.log("Success:", data);
+             fetchdata()
          })
          .catch((error) => {
            console.error("Error:", error);
